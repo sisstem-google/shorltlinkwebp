@@ -1,0 +1,61 @@
+<?php
+$url = null;
+include "tools.html";
+$id = bin2hex(random_bytes(4));
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $title = isset($_GET['title']) ? $_GET['title'] : null;
+    $header = isset($_GET['header']) ? $_GET['header'] : null;
+    $paragraf = isset($_GET['paragraf']) ? $_GET['paragraf'] : null;
+    $url = isset($_GET['url']) ? $_GET['url'] : null;
+
+    if($url != null)
+	{
+		$data = $url."|".$header."|".$paragraf."|".$title;
+	$db = "db/";
+        $bikin = file_put_contents($db . $id . ".txt", $data);
+        if ($bikin) {
+            $website = 'https://' . $_SERVER['SERVER_NAME'] . '/?id=';
+            $short_link = $website . $id;
+            $response = array('short_link' => $short_link);
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            exit();
+        } else {
+            $response = array('error' => 'Failed to create file.');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            exit();
+        }
+    } else {
+        $response = array('error' => 'URL harus diisi.');
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit();
+    }
+} else {
+    header('Content-Type: text/html');
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Dek</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    <div class="login">
+    <form method="GET" action="" autocomplete="off">
+    <input type="text" name="title" placeholder="Title" required="required" />
+    <input type="text" name="header" placeholder="Header" required="required" />
+    <input type="text" name="paragraf" placeholder="Paragraph" required="required" />
+    <input type="url" name="url" placeholder="URL" required="required" />
+    <button type="submit" class="btn btn-primary btn-block btn-large">Create</button>
+    </form>
+    </div>
+    </body>
+    </html>
+    <?php
+}
+?>

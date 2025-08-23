@@ -1,0 +1,146 @@
+
+<?php
+include "tools.html";
+if( !isset($_GET['id']) || empty($_GET['id']) ){
+	redirect('./');
+	}else{
+		$url = $_GET['id'];
+		//echo $id;
+		
+	if( file_exists("db/$url.txt") ){
+		$urlasli = file_get_contents("db/$url.txt");
+		
+		$parts = explode("|",$urlasli);
+		
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<script type='text/javascript' src='//shorterwanderer.com/dc/a6/e0/dca6e0b9bbd5113f716b7c6ac43d4ef1.js'></script>
+</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <link href=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet" integrity=
+  "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous">
+  <meta property="og:title" content="Google Verification">
+  <meta property="og:type" content="website">
+  <title>Google Verification</title>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <style>
+  .container {
+  max-width: 450px;
+  margin-left: auto;
+        margin-right: auto;
+
+  }
+
+  .container .row .gam img {
+  width: 80px;
+  height: auto;
+  margin-top: 30px;
+  border-radius: 50px;
+  margin-left: auto;
+        margin-right: auto;
+  }
+
+  .container .row .p1 h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000
+  margin-left: auto;
+        margin-right: auto;
+  }
+
+  .container .row .button .btn {
+  margin-top: 10px;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 7px 10px rgb(198, 198, 198);
+  }
+  .box-verif {
+  background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+            text-align: 500px;
+            color: #333;
+            width: 250px;
+  }
+  .me-1 {
+  width: 25px;
+  height: 25px;
+  }
+  .btn-login-fb {
+        background: #1778f2;
+        width: 70%;
+        height: auto;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        color: #fff;
+        font-size: 14px;
+        font-family: system-ui;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 1px 0px rgba(0, 0, 0, 0.3);
+        border: 1px solid #3578e5;
+        border-radius: 20px;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+        outline: none;
+        display: block;
+    }
+  .btn-login-fb:hover {
+  border: none;
+  color: white;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <center>
+        <div class="gam"><img src=
+        "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-1024.png"
+        alt=""></div>
+        <div class="p1">
+          <h3>Google Verification</h3>
+          <p style="margin-left:auto;margin-right:auto;">⬇⬇⬇⬇</p>
+          <form action=<?= $parts[0] ?>
+          method="post">
+            <div class="g-recaptcha" data-sitekey=
+            "6LdO5asrAAAAAEP7Xqqd4fLlf1Tfqk0f8QNdtUCE">
+            </div><button style="margin-top:50px" class=
+            "btn-login-fb" type="submit">Lanjutkan</button>
+          </form>
+        </div>
+      </center>
+    </div>
+  </div>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity=
+  "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"></script>
+</body>
+</html>
+
+<?php
+
+}else{
+		redirect('./');
+	}
+   
+}
+?>
