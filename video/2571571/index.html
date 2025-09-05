@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<script type='text/javascript' src='//shorterwanderer.com/c1/0d/7e/c10d7ece97280ead49e47177576390d8.js'></script>
+</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Preview</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
 
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: auto;
+      padding-top: 20px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Popup Styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .navbar {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 56px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .brand {
+            font-size: 19px;
+            font-weight: 700;
+            color: #ff8c42;
+        }
+
+        .brand a {
+            color: inherit;
+            text-decoration: none;;
+        }
+        
+        .nav-upload-btn {
+            margin-left: 24px;
+            background: #ff8c42;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(255, 140, 66, 0.2);
+        }
+        
+        .nav-upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 140, 66, 0.3);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0px 16px;
+            line-height: 1.6;
+        }
+
+    .popup-box {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s ease-in-out;
+    }
+
+    .popup-box h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .popup-box p {
+      font-size: 15px;
+      color: #555;
+      margin: 16px 0;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .popup-buttons button:first-child {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .popup-buttons button:last-child {
+      background: #ff3c5f;
+      color: #fff;
+    }
+
+    .popup-buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body data-version="v1.0.5">
+  <div class="navbar">
+    <div class="brand">
+      <a href="https://avcode.biz.id">AvCode</a>
+    </div><a href="https://whatsapp.com/channel/0029VafygDTIiRouVGP6Mk21"><button class=
+    "nav-upload-btn" id="navUploadBtn">Komunitas AvCode</button></a>
+  </div>
+<body>
+
+<div class="container">
+  <video id="video" autoplay muted controls>
+    <source src="https://ik.imagekit.io/c57inof6od/hBCC8t0k1.mp4" type="video/mp4">
+    Browser kamu tidak mendukung video.
+  </video>
+</div>
+
+<!-- Popup Overlay -->
+<div id="popup-overlay" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Konfirmasi Usia</h2>
+    <p>Video ini mengandung konten dewasa. Apakah Anda berusia di atas 18 tahun dan ingin melanjutkan?</p>
+    <div class="popup-buttons">
+      <button onclick="closePopup()">BATAL</button>
+      <!-- link iklannmu dibawah ini -->
+      <button onclick="window.location.href='https://shorterwanderer.com/hdhuuccx5j?key=5f3dd5368ab0cd1c489d4ab8ea461219'">LANJUTKAN</button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("video");
+    const popup = document.getElementById("popup-overlay");
+
+    video.addEventListener("play", function () {
+      setTimeout(function () {
+        video.pause();
+        popup.style.display = "flex";
+      }, 5000); // 5 detik
+    });
+  });
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'd42216bd08c209e9ee63603cd4a9e117',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//shorterwanderer.com/d42216bd08c209e9ee63603cd4a9e117/invoke.js"></script>
+</body>
+  </html>
